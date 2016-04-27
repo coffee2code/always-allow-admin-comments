@@ -5,7 +5,7 @@ Tags: comment, comments, comments_open, commenting, admin, post, page, coffee2co
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.1
-Tested up to: 4.4
+Tested up to: 4.5
 Stable tag: 1.0
 
 An admin user (when logged in) will always be able to comment on a post, even if the post's comments are closed.
@@ -88,6 +88,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 
 = () =
 * Change: Minor readme.txt documentation tweaks.
+* Change: Note compatibility through WP 4.5+.
 
 = 1.0 (2016-03-08) =
 * Initial public release
