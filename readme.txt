@@ -14,10 +14,10 @@ An admin user (when logged in) will always be able to comment on a post, even if
 
 This plugin enables a user with the administrator role the ability to comment on any post or page, even if the comments for that post or page are closed.
 
-Administrators can be prevented from commenting on posts via two approaches:
+While the plugin is active, administrators can be prevented from commenting on specific posts via two approaches:
 
-# When creating or editing a post, in the 'Discussion' metabox there is a checkbox that only administrators can access. Checking the checkbox will prevent administrators from commenting on the post even though this plugin is active. (If the metabox isn't visible for you, then expand the "Screen Options" slide-down on the upper-right of the page.)
-# Programmatically via the 'c2c_admin_can_always_comment_disable' filter. This can be used be provide more fine-grained access control and contextual handling. See the "Other Notes" section for documentation on the filter's use.
+* When creating or editing a post, in the 'Discussion' metabox there is a checkbox that only administrators can access. Checking the checkbox will prevent administrators from commenting on the post even though this plugin is active. (If the metabox isn't visible for you, then expand the "Screen Options" slide-down on the upper-right of the page.)
+* Programmatically via the 'c2c_admin_can_always_comment_disable' filter. This can be used be provide more fine-grained access control and contextual handling. See the "Other Notes" section for documentation on the filter's use.
 
 Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/always-allow-admin-comments/) | [Plugin Directory Page](https://wordpress.org/plugins/always-allow-admin-comments/) | [Author Homepage](http://coffee2code.com)
 
@@ -85,6 +85,9 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 
 
 == Changelog ==
+
+= () =
+* Change: Minor readme.txt documentation tweaks.
 
 = 1.0 (2016-03-08) =
 * Initial public release
