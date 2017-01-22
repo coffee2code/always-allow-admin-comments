@@ -5,6 +5,8 @@
  * @package Always_Allow_Admin_Comments
  */
 
+ini_set('display_errors','on');
+error_reporting(E_ALL);
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
 if ( ! $_tests_dir ) {
