@@ -87,6 +87,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 == Changelog ==
 
 = () =
+* Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
 * Change: Minor readme.txt documentation tweaks.
 * Change: Note compatibility through WP 4.5+.
 
