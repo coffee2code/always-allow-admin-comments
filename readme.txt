@@ -12,19 +12,19 @@ An admin user (when logged in) will always be able to comment on a post, even if
 
 == Description ==
 
-This plugin enables a user with the administrator role the ability to comment on any post or page, even if the comments for that post or page are closed.
+This plugin enables a user with the administrator role the ability to comment on any post or page, even if the comments for that post or page are closed. When the plugin is active, this behavior is automatically enabled.
 
-While the plugin is active, administrators can be prevented from commenting on specific posts via two approaches:
+Administrators can be explicitly prevented from commenting on specific posts via two approaches:
 
-* When creating or editing a post, in the 'Discussion' metabox there is a checkbox that only administrators can access. Checking the checkbox will prevent administrators from commenting on the post even though this plugin is active. (If the metabox isn't visible for you, then expand the "Screen Options" slide-down on the upper-right of the page.)
-* Programmatically via the 'c2c_admin_can_always_comment_disable' filter. This can be used be provide more fine-grained access control and contextual handling. See the "Other Notes" section for documentation on the filter's use.
+* When creating or editing a post, via the 'Discussion' metabox where there is a checkbox labeled "Prevent administrators from commenting" that only administrators can access. Checking the checkbox will prevent administrators from commenting on the post even though this plugin is active. (If the metabox isn't visible for you, then expand the "Screen Options" slide-down panel on the upper-right of the page.)
+* Programmatically, via the use of the 'c2c_admin_can_always_comment_disable' filter. This can be used be provide more fine-grained access control and contextual handling. See the "Other Notes" section for documentation on the filter's use.
 
 Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/always-allow-admin-comments/) | [Plugin Directory Page](https://wordpress.org/plugins/always-allow-admin-comments/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
 
-1. Unzip `always-allow-admin-comments.zip` inside the plugins directory for your site (typically `/wp-content/plugins/`). Or install via the built-in WordPress plugin installer)
+1. Install via the built-in WordPress plugin installer. Or download and unzip `always-allow-admin-comments.zip` inside the plugins directory for your site (typically `wp-content/plugins/`)
 2. Activate the plugin through the 'Plugins' admin menu in WordPress
 
 
@@ -46,7 +46,7 @@ Yes.
 
 == Filters ==
 
-The plugin is further customizable via one filter. Typically, these customizations would be put into your active theme's functions.php file, or used by another plugin.
+The plugin is further customizable via three hooks. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
 
 = c2c_always_allow_admin_comments_disable =
 
@@ -96,6 +96,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 * Change: Minor readme.txt documentation tweaks.
 * Change: Note compatibility through WP 4.7+.
 * Change: Remove support for WordPress older than 4.6 (should still work for earlier versions)
+* Change: Minor readme improvements.
 * Change: Update copyright date (2017).
 
 = 1.0 (2016-03-08) =
