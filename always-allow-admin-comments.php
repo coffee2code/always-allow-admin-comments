@@ -103,7 +103,24 @@ class c2c_AlwaysAllowAdminComments {
 		add_filter( 'comments_open',                        array( $this, 'comments_open_for_admin' ), 20, 2 );
 		add_action( 'post_comment_status_meta_box-options', array( $this, 'display_option' ) );
 		add_action( 'save_post',                            array( $this, 'save_setting' ) );
-		add_filter( 'is_protected_meta',                    array( $this, 'hide_meta' ), 10, 2 );
+
+		self::register_meta();
+	}
+
+	/**
+	 * Registers the post meta field.
+	 *
+	 * @since 1.1
+	 */
+	public static function register_meta() {
+		register_meta( 'post', self::$setting_name, array(
+			'type'              => 'integer',
+			'description'       => __( 'Disallow admin comments for the post', 'always-allow-admin-comments' ),
+			'single'            => true,
+			'sanitize_callback' => 'absint',
+			'auth_callback'     => '__return_false',
+			'show_in_rest'      => false,
+		) );
 	}
 
 	/**
@@ -143,20 +160,6 @@ class c2c_AlwaysAllowAdminComments {
 
 		$disable_admin_commenting = isset( $_POST[ self::$setting_name ] ) && '1' === $_POST[ self::$setting_name ];
 		$this->set_admin_can_comment_on_post( ! $disable_admin_commenting, $post_id );
-	}
-
-	/**
-	 * Prevents the meta key from being displayed in the Custom Fields metabox.
-	 *
-	 * @since 1.0
-	 *
-	 * @param bool   $protected Is the meta key protected?
-	 * @param string $key       The meta key name.
-	 *
-	 * @return bool  Is the meta key protected?
-	 */
-	public function hide_meta( $protected, $key ) {
-		return ( self::$setting_name === $key ? true : $protected );
 	}
 
 	/**

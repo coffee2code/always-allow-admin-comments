@@ -4,6 +4,8 @@ defined( 'ABSPATH' ) or die();
 
 class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 
+	private static $meta_key = 'c2c_always_allow_admin_comments';
+
 	public function tearDown() {
 		parent::tearDown();
 		$this->unset_current_user();
@@ -197,4 +199,9 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 
 		$this->assertFalse( comments_open( $post_id ) );
 	}
+
+	public function test_meta_is_registered() {
+		$this->assertTrue( registered_meta_key_exists( 'post', self::$meta_key ) );
+	}
+
 }
