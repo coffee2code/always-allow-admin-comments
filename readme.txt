@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 4.7
-Stable tag: 1.0
+Stable tag: 1.1
 
 An admin user (when logged in) will always be able to comment on a post, even if the post's comments are closed.
 
@@ -86,7 +86,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 
 == Changelog ==
 
-= () =
+= 1.1 (2017-01-23) =
 * Change: Register meta field via `register_meta()`.
     * Add own `register_meta()`
     * Remove `hide_meta()` in favor of use of `register_meta()`
@@ -104,6 +104,9 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 
 
 == Upgrade Notice ==
+
+= 1.1 =
+Minor update: register meta field via `register_meta()` (but do not show in REST API), noted compatibility through WP 4.7+, dropped compatibility with versions of WP older than 4.6, and updated copyright date
 
 = 1.0 =
 Initial public release.

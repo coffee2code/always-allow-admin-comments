@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Always Allow Admin Comments
- * Version:     1.0
+ * Version:     1.1
  * Plugin URI:  http://coffee2code.com/wp-plugins/admin-can-always-comment/
  * Author:      Scott Reilly
  * Author URI:  http://coffee2code.com/
@@ -18,7 +18,14 @@
  *
  * @package Always_Allow_Admin_Comments
  * @author  Scott Reilly
- * @version 1.0
+ * @version 1.1
+ */
+
+/*
+ * TODO:
+ * - Add template tag that allows checking if commenting is enabled due to this plugin.
+ *   (basically the value comments_open() would return if this plugin weren't active)
+ * - Rename meta key to reflect its meaning rather than simple being the name of the plugin.
  */
 
 /*
@@ -79,7 +86,7 @@ class c2c_AlwaysAllowAdminComments {
 	 * @since 1.0
 	 */
 	public static function version() {
-		return '1.0';
+		return '1.1';
 	}
 
 	/**
@@ -236,6 +243,7 @@ class c2c_AlwaysAllowAdminComments {
 
 		return $status;
 	}
+
 }
 
 c2c_AlwaysAllowAdminComments::get_instance();
