@@ -174,8 +174,8 @@ class c2c_AlwaysAllowAdminComments {
 
 		$status = $this->is_admin_commenting_disabled( $post->ID, false ) ? '1' : '0';
 
-		echo '<label for="' . self::$setting_name . '" class="selectit" style="display: block;">';
-		echo '<input type="checkbox" name="' . self::$setting_name . '" value="1" ' . checked( $status, '1' ) . '/> ';
+		echo '<label for="' . esc_attr( self::$setting_name ) . '" class="selectit" style="display: block;">';
+		echo '<input type="checkbox" name="' . esc_attr( self::$setting_name ) . '" value="1" ' . checked( $status, '1' ) . '/> ';
 		_e( 'Prevent administrators from commenting.', 'always-allow-admin-comments' );
 		echo '<span class="description" style="display: block; padding-left: 1.85em;">';
 		_e( 'Administrators can currently comment even if commenting is closed.', 'always-allow-admin-comments' );
