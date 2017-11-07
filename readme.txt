@@ -87,6 +87,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 == Changelog ==
 
 = () =
+* New: Add README.md
 * Change: Minor tweak to plugin description
 * Change: Minor whitespace changes to unit test bootstrap
 * Change: Add GitHub link to readme
