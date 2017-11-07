@@ -87,6 +87,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 == Changelog ==
 
 = () =
+* Change: Minor whitespace changes to unit test bootstrap
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 
