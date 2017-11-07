@@ -88,6 +88,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 
 = () =
 * Change: Note compatibility through WP 4.9+
+* Change: Update copyright date (2018)
 
 = 1.1 (2017-01-23) =
 * Change: Register meta field via `register_meta()`.
