@@ -88,6 +88,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 
 = () =
 * New: Add inline documentation for hook
+* Change: Add README link to plugin's page in Plugin Directory
 * Change: Split paragraph in README.md's "Support" section into two
 * Change: Initialize plugin on 'plugins_loaded' action instead of on load
 * Change: Merge `plugins_loaded()` into constructor

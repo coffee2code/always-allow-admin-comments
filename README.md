@@ -2,6 +2,8 @@
 
 A plugin for WordPress that allows an admin user (when logged in) to always be able to comment on a post, even if comments are closed for the post.
 
+This plugin is available in the WordPress Plugin Directory: https://wordpress.org/plugins/always-allow-admin-comments/
+
 
 ## Installation
 
