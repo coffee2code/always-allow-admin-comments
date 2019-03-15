@@ -48,7 +48,7 @@ Yes.
 
 The plugin is further customizable via three hooks. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
 
-= c2c_always_allow_admin_comments_disable =
+**c2c_always_allow_admin_comments_disable (filter)**
 
 The 'c2c_always_allow_admin_comments_disable' filter allows you to customize whether comments should actually be disabled for a particular admin user. By default, all admin users can always comment on posts and pages. Using this filter, you have finer-grained controls to override this behavior. It takes into account the checkbox provided per post to explicitly prevent admin comments.
 
@@ -89,6 +89,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 = () =
 * Change: Tweak plugin description
 * Change: Rename readme.txt section from 'Filters' to 'Hooks'
+* Change: Modify formatting of hook name in readme to prevent being uppercased when shown in the Plugin Directory
 * Change: Note compatibility through WP 5.1+
 * Change: Update copyright date (2019)
 * Change: Update License URI to be HTTPS
