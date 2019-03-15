@@ -8,7 +8,7 @@ Requires at least: 4.6
 Tested up to: 5.1
 Stable tag: 1.1.1
 
-Allow an admin user (when logged in) to always be able to comment on a post, even if the post's comments are closed.
+Allow an admin user (when logged in) to always be able to comment on a post, even if comments are closed for the post.
 
 == Description ==
 
@@ -87,6 +87,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 == Changelog ==
 
 = () =
+* Change: Tweak plugin description
 * Change: Note compatibility through WP 5.1+
 * Change: Update copyright date (2019)
 * Change: Update License URI to be HTTPS
