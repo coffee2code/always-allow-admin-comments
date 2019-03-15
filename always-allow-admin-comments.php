@@ -246,6 +246,6 @@ class c2c_AlwaysAllowAdminComments {
 
 }
 
-c2c_AlwaysAllowAdminComments::get_instance();
+add_action( 'plugins_loaded', array( 'c2c_AlwaysAllowAdminComments', 'get_instance' ) );
 
 endif;

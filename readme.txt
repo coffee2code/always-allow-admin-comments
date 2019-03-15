@@ -87,6 +87,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 == Changelog ==
 
 = () =
+* Change: Initialize plugin on 'plugins_loaded' action instead of on load
 * Change: Tweak plugin description
 * Change: Rename readme.txt section from 'Filters' to 'Hooks'
 * Change: Modify formatting of hook name in readme to prevent being uppercased when shown in the Plugin Directory
