@@ -229,6 +229,15 @@ class c2c_AlwaysAllowAdminComments {
 		$status = '1' === get_post_meta( $post_id, self::$setting_name, true );
 
 		if ( $apply_filter ) {
+			/**
+			 * Filters whether admin commenting has been explicitly disabled for the
+			 * given post.
+			 *
+			 * @since 1.0
+			 *
+			 * @param bool $status  Is admin commenting explicitly disabled for the post?
+			 * @param int  $post_id The post ID.
+			 */
 			$status = apply_filters( 'c2c_always_allow_admin_comments_disable', $status, $post_id );
 		}
 

@@ -87,6 +87,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 == Changelog ==
 
 = () =
+* New: Add inline documentation for hook
 * Change: Initialize plugin on 'plugins_loaded' action instead of on load
 * Change: Merge `plugins_loaded()` into constructor
 * Change: Tweak plugin description
