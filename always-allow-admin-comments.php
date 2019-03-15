@@ -95,15 +95,6 @@ class c2c_AlwaysAllowAdminComments {
 	 * @since 1.0
 	 */
 	private function __construct() {
-		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
-	}
-
-	/**
-	 * Initializes the plugin.
-	 *
-	 * @since 1.0
-	 */
-	public function plugins_loaded() {
 		// Load textdomain
 		load_plugin_textdomain( 'always-allow-admin-comments' );
 
