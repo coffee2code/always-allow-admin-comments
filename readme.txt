@@ -46,7 +46,7 @@ Yes.
 
 == Hooks ==
 
-The plugin is further customizable via three hooks. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
+The plugin is further customizable via one hook. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
 
 **c2c_always_allow_admin_comments_disable (filter)**
 
