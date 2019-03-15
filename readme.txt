@@ -87,6 +87,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 == Changelog ==
 
 = () =
+* New: Add CHANGELOG.md and move all but most recent changelog entries into it
 * New: Add inline documentation for hook
 * Change: Add README link to plugin's page in Plugin Directory
 * Change: Split paragraph in README.md's "Support" section into two
@@ -120,8 +121,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 * Change: Minor readme improvements.
 * Change: Update copyright date (2017).
 
-= 1.0 (2016-03-08) =
-* Initial public release
+= Full changelog is available in [CHANGELOG.md](CHANGELOG.md). =
 
 
 == Upgrade Notice ==
