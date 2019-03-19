@@ -89,6 +89,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 = () =
 * New: Add CHANGELOG.md and move all but most recent changelog entries into it
 * New: Add inline documentation for hook
+* New: Add .gitignore file
 * Change: Modify how the meta field is registered:
     * Set `show_in_rest` to true
     * Set `type` to boolean
