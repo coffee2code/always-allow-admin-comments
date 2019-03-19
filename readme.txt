@@ -96,6 +96,11 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
     * Set `type` to boolean
     * Add callbacks to `auth_callback` and `sanitize_callback`
     * Register meta on `init` instead of `plugins_loaded`
+* Change: Revamp `display_option()` to operate in multiple contexts
+    * Make `$post` argument optional, defaulting to global post
+    * Improve styling when metabox appears on the right
+    * Use `sprintf()` instead of string concatenation to build output strings
+    * Move styles into `style` tag instead of being inline styles
 * Change: Add README link to plugin's page in Plugin Directory
 * Change: Split paragraph in README.md's "Support" section into two
 * Change: Initialize plugin on 'plugins_loaded' action instead of on load

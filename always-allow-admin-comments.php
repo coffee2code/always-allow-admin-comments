@@ -178,25 +178,45 @@ class c2c_AlwaysAllowAdminComments {
 	}
 
 	/**
-	 * Displays option field in 'Discussion' metabox for a post/page, but only
-	 * for administrators.
+	 * Displays option field  for a post/page, but only for administrators.
 	 *
 	 * @since 1.0
 	 *
-	 * @param WP_Post Post.
+	 * @param WP_Post|null Post or null to denote current post. Default null.
 	 */
-	public function display_option( $post ) {
+	public function display_option( $post = null ) {
 		if ( ! $this->can_show_ui() ) {
 			return;
 		}
 
-		$status = $this->is_admin_commenting_disabled( $post->ID, false ) ? '1' : '0';
+		if ( ! $post ) {
+			$post = get_post();
+		}
 
-		echo '<label for="' . esc_attr( self::$setting_name ) . '" class="selectit" style="display: block;">';
-		echo '<input type="checkbox" name="' . esc_attr( self::$setting_name ) . '" value="1" ' . checked( $status, '1' ) . '/> ';
+		$status = $this->is_admin_commenting_disabled( $post->ID, false ) ? '1' : '0';
+		echo <<<HTML
+			<style>
+				.always-allow-admin-comments-container,
+				.always-allow-admin-comments-container .description {
+					display: block;
+				}
+				#postbox-container-1 .always-allow-admin-comments-container .description,
+				.edit-post-sidebar #postbox-container-2 .always-allow-admin-comments-container .description {
+					margin-top: 1em;
+				}
+				#postbox-container-2 .always-allow-admin-comments-container .description {
+					padding-left: 1.85em;
+				}
+				.edit-post-sidebar #postbox-container-2 .always-allow-admin-comments-container .description {
+					padding-left: 0;
+				}
+			</style>
+HTML;
+		printf( '<label for="%s" class="selectit always-allow-admin-comments-container">', esc_attr( self::$setting_name ) );
+		printf( '<input type="checkbox" name="%s" value="1" %s/> ', esc_attr( self::$setting_name ), checked( $status, '1', false ) );
 		_e( 'Prevent administrators from commenting.', 'always-allow-admin-comments' );
-		echo '<span class="description" style="display: block; padding-left: 1.85em;">';
-		_e( 'Administrators can currently comment even if commenting is closed.', 'always-allow-admin-comments' );
+		echo '<span class="description">';
+		_e( 'Administrators can otherwise comment even if commenting is closed.', 'always-allow-admin-comments' );
 		echo '</span></label>' . "\n";
 	}
 
