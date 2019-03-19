@@ -126,6 +126,19 @@ class c2c_AlwaysAllowAdminComments {
 	}
 
 	/**
+	 * Determines if the UI for the plugin can be shown.
+	 *
+	 * Currently only requires that the current user be an administrator.
+	 *
+	 * @since 1.2
+	 *
+	 * @return bool
+	 */
+	public function can_show_ui() {
+		return current_user_can( 'administrator' );
+	}
+
+	/**
 	 * Explicitly sets override for disabling the ability for an admin to
 	 * comment on a post.
 	 *
@@ -156,7 +169,7 @@ class c2c_AlwaysAllowAdminComments {
 	 * @param int $post_id The post ID.
 	 */
 	public function save_setting( $post_id ) {
-		if ( ! current_user_can( 'administrator' ) ) {
+		if ( ! $this->can_show_ui() ) {
 			return;
 		}
 
@@ -173,7 +186,7 @@ class c2c_AlwaysAllowAdminComments {
 	 * @param WP_Post Post.
 	 */
 	public function display_option( $post ) {
-		if ( ! current_user_can( 'administrator' ) ) {
+		if ( ! $this->can_show_ui() ) {
 			return;
 		}
 
