@@ -89,6 +89,11 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 = () =
 * New: Add CHANGELOG.md and move all but most recent changelog entries into it
 * New: Add inline documentation for hook
+* Change: Modify how the meta field is registered:
+    * Set `show_in_rest` to true
+    * Set `type` to boolean
+    * Add callbacks to `auth_callback` and `sanitize_callback`
+    * Register meta on `init` instead of `plugins_loaded`
 * Change: Add README link to plugin's page in Plugin Directory
 * Change: Split paragraph in README.md's "Support" section into two
 * Change: Initialize plugin on 'plugins_loaded' action instead of on load

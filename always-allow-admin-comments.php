@@ -102,7 +102,7 @@ class c2c_AlwaysAllowAdminComments {
 		add_action( 'post_comment_status_meta_box-options', array( $this, 'display_option' ) );
 		add_action( 'save_post',                            array( $this, 'save_setting' ) );
 
-		self::register_meta();
+		add_action( 'init',                                 array( __CLASS__, 'register_meta' ) );
 	}
 
 	/**
@@ -112,12 +112,16 @@ class c2c_AlwaysAllowAdminComments {
 	 */
 	public static function register_meta() {
 		register_meta( 'post', self::$setting_name, array(
-			'type'              => 'integer',
+			'type'              => 'boolean',
 			'description'       => __( 'Disallow admin comments for the post', 'always-allow-admin-comments' ),
 			'single'            => true,
-			'sanitize_callback' => 'absint',
-			'auth_callback'     => '__return_false',
-			'show_in_rest'      => false,
+			'sanitize_callback' => function ( $value ) {
+				return (bool) $value;
+			},
+			'auth_callback'     => function() {
+				return current_user_can( 'edit_posts' );
+			},
+			'show_in_rest'      => true,
 		) );
 	}
 
