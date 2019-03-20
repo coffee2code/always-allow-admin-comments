@@ -16,8 +16,8 @@ This plugin enables a user with the administrator role the ability to comment on
 
 Administrators can be explicitly prevented from commenting on specific posts via two approaches:
 
-* When creating or editing a post, via the 'Discussion' metabox where there is a checkbox labeled "Prevent administrators from commenting" that only administrators can access. Checking the checkbox will prevent administrators from commenting on the post even though this plugin is active. (If the metabox isn't visible for you, then expand the "Screen Options" slide-down panel on the upper-right of the page.)
-* Programmatically, via the use of the 'c2c_admin_can_always_comment_disable' filter. This can be used be provide more fine-grained access control and contextual handling. See the "Other Notes" section for documentation on the filter's use.
+* When creating or editing a post, in the "Prevent Admin Comments" metabox (in the block editor) or the "Discussion" metabox (in the classic editor) there is a checkbox labeled "Prevent administrators from commenting" that only administrators can access. Checking the checkbox will prevent administrators from commenting on the post even though this plugin is active. (If the metabox isn't visible for you when using the classic editor, then expand the "Screen Options" slide-down panel on the upper-right of the page.)
+* Programmatically, via the use of the 'c2c_admin_can_always_comment_disable' filter. This can be used be provide more fine-grained access control and contextual handling. See the "Hooks" section for documentation on the filter's use.
 
 Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/always-allow-admin-comments/) | [Plugin Directory Page](https://wordpress.org/plugins/always-allow-admin-comments/) | [GitHub](https://github.com/coffe2code/always-allow-admin-comments/) | [Author Homepage](http://coffee2code.com)
 
@@ -87,6 +87,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 == Changelog ==
 
 = () =
+* New: Add `do_meta_box()` for interim metabox for block editor (aka Gutenberg) support
 * New: Add `can_show_ui()` to determine if the UI should generally be shown
 * New: Add CHANGELOG.md and move all but most recent changelog entries into it
 * New: Add inline documentation for hook

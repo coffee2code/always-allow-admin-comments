@@ -102,6 +102,8 @@ class c2c_AlwaysAllowAdminComments {
 		add_action( 'post_comment_status_meta_box-options', array( $this, 'display_option' ) );
 		add_action( 'save_post',                            array( $this, 'save_setting' ) );
 
+		add_action( 'do_meta_boxes',                        array( $this, 'do_meta_box' ), 10, 3 );
+
 		add_action( 'init',                                 array( __CLASS__, 'register_meta' ) );
 	}
 
@@ -123,6 +125,43 @@ class c2c_AlwaysAllowAdminComments {
 			},
 			'show_in_rest'      => true,
 		) );
+	}
+
+	/**
+	 * Register meta box.
+	 *
+	 * Due to the block editor's current lack of panel customization, it is not
+	 * presently feasible to insert the checkbox into the Duscussion panel where
+	 * it appropriately belongs. So until it is possible to do so, just put the
+	 * field into a meta box. (The meta box is not needed in the classic editor.)
+	 *
+	 * @since 1.2
+	 *
+	 * @param string  $post_type The post type.
+	 * @param string  $type      The mode for the meta box (normal, advanced, or side).
+	 * @param WP_Post $post      The post.
+	 */
+	public function do_meta_box( $post_type, $type, $post ) {
+		// Can the UI be shown?
+		if ( ! $this->can_show_ui() ) {
+			return;
+		}
+
+		$current_screen = get_current_screen();
+
+		// Don't show unless in the block editor.
+		if ( ! method_exists( $current_screen, 'is_block_editor' ) || ! $current_screen->is_block_editor() ) {
+			return;
+		}
+
+		add_meta_box(
+			'always-allow-admin-comments-div',
+			__( 'Prevent Admin Comments', 'always-allow-admin-comments' ),
+			array( $this, 'display_option' ),
+			$post_type,
+			'side',
+			'core'
+		);
 	}
 
 	/**
