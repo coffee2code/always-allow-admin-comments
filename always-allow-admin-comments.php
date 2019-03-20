@@ -133,8 +133,14 @@ class c2c_AlwaysAllowAdminComments {
 		}
 
 		foreach ( $post_types as $post_type ) {
-			$config['object_subtype'] = $post_type;
-			register_meta( 'post', self::$setting_name, $config );
+			if ( function_exists( 'register_post_meta' ) ) {
+				register_post_meta( $post_type, self::$setting_name, $config );
+			}
+			// Pre WP 4.9.8 support
+			else {
+				$config['object_subtype'] = $post_type;
+				register_meta( 'post', self::$setting_name, $config );
+			}
 		}
 	}
 

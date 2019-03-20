@@ -201,7 +201,7 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 	}
 
 	public function test_meta_is_registered() {
-		$this->assertTrue( registered_meta_key_exists( 'post', self::$meta_key ) );
+		$this->assertTrue( registered_meta_key_exists( 'post', self::$meta_key, 'post' ) );
 	}
 
 }
