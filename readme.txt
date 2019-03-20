@@ -134,7 +134,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 * Change: Minor readme improvements.
 * Change: Update copyright date (2017).
 
-= Full changelog is available in [CHANGELOG.md](CHANGELOG.md). =
+_Full changelog is available in [CHANGELOG.md](CHANGELOG.md)._
 
 
 == Upgrade Notice ==
