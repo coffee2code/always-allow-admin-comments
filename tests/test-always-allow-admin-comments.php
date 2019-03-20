@@ -6,6 +6,12 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 
 	private static $meta_key = 'c2c_always_allow_admin_comments';
 
+	public function setUp() {
+		parent::setUp();
+		// This shouldn't be necessary.
+		do_action( 'init' );
+	}
+
 	public function tearDown() {
 		parent::tearDown();
 		$this->unset_current_user();
