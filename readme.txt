@@ -93,6 +93,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 * New: Add inline documentation for hook
 * New: Add .gitignore file
 * Change: Modify how the meta field is registered:
+    * Explicitly register meta for each post type that supports having comments
     * Set `show_in_rest` to true
     * Set `type` to boolean
     * Add callbacks to `auth_callback` and `sanitize_callback`

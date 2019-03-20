@@ -26,6 +26,7 @@
  * - Add template tag that allows checking if commenting is enabled due to this plugin.
  *   (basically the value comments_open() would return if this plugin weren't active)
  * - Rename meta key to reflect its meaning rather than simple being the name of the plugin.
+ * - Add filter for support post types
  */
 
 /*
@@ -113,7 +114,7 @@ class c2c_AlwaysAllowAdminComments {
 	 * @since 1.1
 	 */
 	public static function register_meta() {
-		register_meta( 'post', self::$setting_name, array(
+		$config = array(
 			'type'              => 'boolean',
 			'description'       => __( 'Disallow admin comments for the post', 'always-allow-admin-comments' ),
 			'single'            => true,
@@ -124,7 +125,17 @@ class c2c_AlwaysAllowAdminComments {
 				return current_user_can( 'edit_posts' );
 			},
 			'show_in_rest'      => true,
-		) );
+		);
+
+		$post_types = get_post_types_by_support( 'comments' );
+		if ( ! $post_types ) {
+			return;
+		}
+
+		foreach ( $post_types as $post_type ) {
+			$config['object_subtype'] = $post_type;
+			register_meta( 'post', self::$setting_name, $config );
+		}
 	}
 
 	/**
