@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 5.1
-Stable tag: 1.1.1
+Stable tag: 1.2
 
 Allow an admin user (when logged in) to always be able to comment on a post, even if comments are closed for the post.
 
@@ -86,7 +86,13 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 
 == Changelog ==
 
-= () =
+= 1.2 (2019-03-19) =
+Highlights:
+
+This release mainly adds support for the block editor (aka Gutenberg) via an interim metabox "Prevent Admin Comments". (The block editor does not currently support adding the plugin's checkbox in the "Discussion" panel as expected.) Otherwise, there were a number of behind-the-scenes code and documentation changes.
+
+Details:
+
 * New: Add `do_meta_box()` for interim metabox for block editor (aka Gutenberg) support
 * New: Add `can_show_ui()` to determine if the UI should generally be shown
 * New: Add CHANGELOG.md file and move all but most recent changelog entries into it
@@ -140,6 +146,9 @@ _Full changelog is available in [CHANGELOG.md](CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.2 =
+Recommended update: fix so that the override setting is available in the block editor (as a metabox), modified post meta registeration, tweaked plugin initialization process, noted compatibility through WP 5.1+, updated copyright date (2019), more.
 
 = 1.1.1 =
 Trivial update: noted compatibility through WP 4.9+, added README.md for GitHub, and updated copyright date (2018)

@@ -1,5 +1,41 @@
 # Changelog
 
+## 1.2 _(2019-03-19)_
+
+### Highlights:
+
+This release mainly adds support for the block editor (aka Gutenberg) via an interim metabox "Prevent Admin Comments". (The block editor does not currently support adding the plugin's checkbox in the "Discussion" panel as expected.) Otherwise, there were a number of behind-the-scenes code and documentation changes.
+
+### Details:
+
+* New: Add `do_meta_box()` for interim metabox for block editor (aka Gutenberg) support
+* New: Add `can_show_ui()` to determine if the UI should generally be shown
+* New: Add CHANGELOG.md file and move all but most recent changelog entries into it
+* New: Add inline documentation for hook
+* New: Add .gitignore file
+* Change: Modify how the meta field is registered:
+    * Use `register_post_meta()` instead of `register_meta()`, if available
+    * Explicitly register meta for each post type that supports having comments
+    * Set `show_in_rest` to true
+    * Set `type` to boolean
+    * Add callbacks to `auth_callback` and `sanitize_callback`
+    * Register meta on `init` instead of `plugins_loaded`
+* Change: Revamp `display_option()` to operate in multiple contexts
+    * Make `$post` argument optional, defaulting to global post
+    * Improve styling when metabox appears on the right
+    * Use `sprintf()` instead of string concatenation to build output strings
+    * Move styles into `style` tag instead of being inline styles
+* Change: Add README link to plugin's page in Plugin Directory
+* Change: Split paragraph in README.md's "Support" section into two
+* Change: Initialize plugin on 'plugins_loaded' action instead of on load
+* Change: Merge `plugins_loaded()` into constructor
+* Change: Tweak plugin description
+* Change: Rename readme.txt section from 'Filters' to 'Hooks'
+* Change: Modify formatting of hook name in readme to prevent being uppercased when shown in the Plugin Directory
+* Change: Note compatibility through WP 5.1+
+* Change: Update copyright date (2019)
+* Change: Update License URI to be HTTPS
+
 ## 1.1.1 _(2017-11-07)_
 * New: Add README.md
 * Change: Minor tweak to plugin description
