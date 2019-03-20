@@ -89,7 +89,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 = () =
 * New: Add `do_meta_box()` for interim metabox for block editor (aka Gutenberg) support
 * New: Add `can_show_ui()` to determine if the UI should generally be shown
-* New: Add CHANGELOG.md and move all but most recent changelog entries into it
+* New: Add CHANGELOG.md file and move all but most recent changelog entries into it
 * New: Add inline documentation for hook
 * New: Add .gitignore file
 * Change: Modify how the meta field is registered:
@@ -140,7 +140,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 == Upgrade Notice ==
 
 = 1.1.1 =
-Trivial update: noted compatibility through WP 4.9+, added README.md for GitHub, and updated copyright date (2018).
+Trivial update: noted compatibility through WP 4.9+, added README.md for GitHub, and updated copyright date (2018)
 
 = 1.1 =
 Minor update: register meta field via `register_meta()` (but do not show in REST API), noted compatibility through WP 4.7+, dropped compatibility with versions of WP older than 4.6, and updated copyright date
