@@ -87,7 +87,7 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 
 == Changelog ==
 
-= 1.2 (2019-03-19) =
+= 1.2 (2019-03-20) =
 Highlights:
 
 This release mainly adds support for the block editor (aka Gutenberg) via an interim metabox "Prevent Admin Comments". (The block editor does not currently support adding the plugin's checkbox in the "Discussion" panel as expected.) Otherwise, there were a number of behind-the-scenes code and documentation changes.
