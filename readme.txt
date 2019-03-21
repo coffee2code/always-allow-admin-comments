@@ -30,7 +30,8 @@ Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/always-allow-admin-co
 
 == Screenshots ==
 
-1. A screenshot of the `Discussion` metabox when creating/editing a post or page that allows you to override the plugin to truly disable admin commenting for the post/page.
+1. A screenshot of the `Discussion` metabox when creating/editing a post or page that allows you to override the plugin to truly disable admin commenting for the post/page. This is the form field used for versions of WordPress older than 5.0, or for versions later than 5.0 when the block editor is disabled.
+2. A screenshot of the `Prevent Admin Comments` metabox when creating/editing a post or page that allows you to override the plugin to truly disable admin commenting for the post/page. This is the form field used for WordPress 5.0 and later when the block editor is enabled (which it is by default).
 
 
 == Frequently Asked Questions ==
@@ -98,6 +99,7 @@ Details:
 * New: Add CHANGELOG.md file and move all but most recent changelog entries into it
 * New: Add inline documentation for hook
 * New: Add .gitignore file
+* New: Add screenshot of new block editor metabox
 * Change: Modify how the meta field is registered:
     * Use `register_post_meta()` instead of `register_meta()`, if available
     * Explicitly register meta for each post type that supports having comments

@@ -13,6 +13,7 @@ This release mainly adds support for the block editor (aka Gutenberg) via an int
 * New: Add CHANGELOG.md file and move all but most recent changelog entries into it
 * New: Add inline documentation for hook
 * New: Add .gitignore file
+* New: Add screenshot of new block editor metabox
 * Change: Modify how the meta field is registered:
     * Use `register_post_meta()` instead of `register_meta()`, if available
     * Explicitly register meta for each post type that supports having comments
