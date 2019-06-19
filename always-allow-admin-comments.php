@@ -10,7 +10,7 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Description: Allow an admin user (when logged in) to always be able to comment on a post, even if comments are closed for the post.
  *
- * Compatible with WordPress 4.6+ through 5.1+.
+ * Compatible with WordPress 4.6+ through 5.2+.
  *
  * =>> Read the accompanying readme.txt file for instructions and documentation.
  * =>> Also, visit the plugin's homepage for additional information and updates.

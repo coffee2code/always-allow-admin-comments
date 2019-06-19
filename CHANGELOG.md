@@ -2,6 +2,7 @@
 
 ## _(in-progress)_
 * Change: Update unit test install script and bootstrap to use latest WP unit test repo
+* Change: Note compatibility through WP 5.2+
 
 ## 1.2 _(2019-03-20)_
 
