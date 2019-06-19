@@ -144,7 +144,7 @@ Details:
 * Change: Minor readme improvements.
 * Change: Update copyright date (2017).
 
-_Full changelog is available in [CHANGELOG.md](CHANGELOG.md)._
+_Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/always-allow-admin-comments/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==

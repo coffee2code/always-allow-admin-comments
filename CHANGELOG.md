@@ -5,6 +5,7 @@
 * Change: Note compatibility through WP 5.2+
 * Change: Add link to CHANGELOG.md in README.md
 * Fix: Correct typo in GitHub URL
+* Fix: Use full path to CHANGELOG.md in the Changelog section of readme.txt
 
 ## 1.2 _(2019-03-20)_
 
