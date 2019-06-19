@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Update unit test install script and bootstrap to use latest WP unit test repo
+
 ## 1.2 _(2019-03-20)_
 
 ### Highlights:
