@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 1.2.1 _(2019-06-18)_
 * Change: Update unit test install script and bootstrap to use latest WP unit test repo
 * Change: Note compatibility through WP 5.2+
 * Change: Add link to CHANGELOG.md in README.md

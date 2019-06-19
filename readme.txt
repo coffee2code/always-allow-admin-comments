@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 5.2
-Stable tag: 1.2
+Stable tag: 1.2.1
 
 Allow an admin user (when logged in) to always be able to comment on a post, even if comments are closed for the post.
 
@@ -87,6 +87,13 @@ add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commentin
 
 == Changelog ==
 
+= 1.2.1 (2019-06-18) =
+* Change: Update unit test install script and bootstrap to use latest WP unit test repo
+* Change: Note compatibility through WP 5.2+
+* Change: Add link to CHANGELOG.md in README.md
+* Fix: Correct typo in GitHub URL
+* Fix: Use full path to CHANGELOG.md in the Changelog section of readme.txt
+
 = 1.2 (2019-03-20) =
 Highlights:
 
@@ -131,23 +138,13 @@ Details:
 * Change: Note compatibility through WP 4.9+
 * Change: Update copyright date (2018)
 
-= 1.1 (2017-01-23) =
-* Change: Register meta field via `register_meta()`.
-    * Add own `register_meta()`
-    * Remove `hide_meta()` in favor of use of `register_meta()`
-* Change: Sanitize meta key name when used as input attribute (it's not a user input value so no security issue existed).
-* Change: Enable more error output for unit tests.
-* Change: Default `WP_TESTS_DIR` to `/tmp/wordpress-tests-lib` rather than erroring out if not defined via environment variable.
-* Change: Minor readme.txt documentation tweaks.
-* Change: Note compatibility through WP 4.7+.
-* Change: Remove support for WordPress older than 4.6 (should still work for earlier versions)
-* Change: Minor readme improvements.
-* Change: Update copyright date (2017).
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/always-allow-admin-comments/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+Trivial update: modernized unit tests and noted compatibility through WP 5.2+
 
 = 1.2 =
 Recommended update: fix so that the override setting is available in the block editor (as a metabox), modified post meta registeration, tweaked plugin initialization process, noted compatibility through WP 5.1+, updated copyright date (2019), more.
