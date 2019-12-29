@@ -40,6 +40,10 @@ Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/always-allow-admin-co
 
 Yes.
 
+= Does this plugin support the block editor (aka Gutenberg)?
+
+Yes, though not entirely. The primary functionality of the plugin--allowing administrators to always comment on posts--works regardless of the post editor being used. However, the checkbox that allows the plugin to be disabled on a per-post basis (in order to actively prevent administrators from being able to comment on the post) is currently only available in the classic editor. This is unlikely to affect most users.
+
 = Does this plugin include unit tests? =
 
 Yes.

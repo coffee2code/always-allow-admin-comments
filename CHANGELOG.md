@@ -5,6 +5,7 @@
     * New: Add test to verify plugin hooks `plugins_loaded` action to initialize itself
     * New: Add unit tests for functions `can_show_ui()`, `comments_open_for_admin()`
 * Change: Note compatibility through WP 5.3+
+* Change: Add an FAQ to clarify that the checkbox to disable admin comments is only available for the classic editor
 * Change: Update copyright date (2020)
 
 ## 1.2.1 _(2019-06-18)_
