@@ -3,7 +3,7 @@
 ## _(in-progress)_
 * Unit tests:
     * New: Add test to verify plugin hooks `plugins_loaded` action to initialize itself
-    * New: Add unit tests for function `can_show_ui()`
+    * New: Add unit tests for functions `can_show_ui()`, `comments_open_for_admin()`
 * Change: Note compatibility through WP 5.3+
 * Change: Update copyright date (2020)
 

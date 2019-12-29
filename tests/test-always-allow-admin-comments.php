@@ -231,4 +231,45 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 
 		$this->assertFalse( c2c_AlwaysAllowAdminComments::get_instance()->can_show_ui() );
 	}
+
+	/*
+	 * comments_open_for_admin()
+	 */
+
+	public function test_comments_open_for_admin_with_open_comments_and_admin() {
+		$post_id = $this->factory->post->create( array( 'comment_status' => 'open' ) );
+		$this->create_user( 'administrator' );
+
+		$this->assertTrue( c2c_AlwaysAllowAdminComments::get_instance()->comments_open_for_admin( true, $post_id ) );
+	}
+
+	public function test_comments_open_for_admin_with_closed_comments_and_admin() {
+		$post_id = $this->factory->post->create( array( 'comment_status' => 'closed' ) );
+		$this->create_user( 'administrator' );
+
+		$this->assertTrue( c2c_AlwaysAllowAdminComments::get_instance()->comments_open_for_admin( false, $post_id ) );
+	}
+
+	public function test_comments_open_for_admin_with_closed_comments_and_admin_comments_disabled() {
+		$post_id = $this->factory->post->create( array( 'post_title' => 'Admin cannot comment', 'comment_status' => 'closed' ) );
+		$this->create_user( 'administrator' );
+		add_filter( 'c2c_always_allow_admin_comments_disable', array( $this, 'disable_admin_commenting_on_specified_post' ), 10, 2 );
+
+		$this->assertFalse( c2c_AlwaysAllowAdminComments::get_instance()->comments_open_for_admin( false, $post_id ) );
+	}
+
+	public function test_comments_open_for_admin_with_open_comments_and_non_admin() {
+		$post_id = $this->factory->post->create( array( 'comment_status' => 'open' ) );
+		$this->create_user( 'editor' );
+
+		$this->assertTrue( c2c_AlwaysAllowAdminComments::get_instance()->comments_open_for_admin( true, $post_id ) );
+	}
+
+	public function test_comments_open_for_admin_with_closed_comments_and_non_admin() {
+		$post_id = $this->factory->post->create( array( 'comment_status' => 'closed' ) );
+		$this->create_user( 'editor' );
+
+		$this->assertFalse( c2c_AlwaysAllowAdminComments::get_instance()->comments_open_for_admin( false, $post_id ) );
+	}
+
 }
