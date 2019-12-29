@@ -81,6 +81,10 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 		$this->assertTrue( is_a( c2c_AlwaysAllowAdminComments::get_instance(), 'c2c_AlwaysAllowAdminComments' ) );
 	}
 
+	public function test_hooks_plugins_loaded() {
+		$this->assertEquals( 10, has_filter( 'plugins_loaded', array( 'c2c_AlwaysAllowAdminComments', 'get_instance' ) ) );
+	}
+
 	public function test_admin_can_comment_when_comments_closed() {
 		$post_id = $this->factory->post->create( array( 'comment_status' => 'closed' ) );
 		$user_id = $this->create_user( 'administrator' );
