@@ -214,4 +214,21 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 		$this->assertTrue( registered_meta_key_exists( 'post', self::$meta_key, 'post' ) );
 	}
 
+	/*
+	 * can_show_ui()
+	 */
+
+	public function test_can_show_ui_for_admin() {
+		$this->create_user( 'administrator' );
+
+		$this->assertTrue( c2c_AlwaysAllowAdminComments::get_instance()->can_show_ui() );
+	}
+
+	public function test_can_show_ui_for_non_admin() {
+		$this->assertFalse( c2c_AlwaysAllowAdminComments::get_instance()->can_show_ui() );
+
+		$this->create_user( 'editor' );
+
+		$this->assertFalse( c2c_AlwaysAllowAdminComments::get_instance()->can_show_ui() );
+	}
 }
