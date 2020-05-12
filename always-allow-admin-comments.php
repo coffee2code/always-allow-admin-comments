@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Always Allow Admin Comments
  * Version:     1.2.2
- * Plugin URI:  http://coffee2code.com/wp-plugins/admin-can-always-comment/
+ * Plugin URI:  https://coffee2code.com/wp-plugins/admin-can-always-comment/
  * Author:      Scott Reilly
- * Author URI:  http://coffee2code.com/
+ * Author URI:  https://coffee2code.com/
  * Text Domain: always-allow-admin-comments
  * License:     GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
