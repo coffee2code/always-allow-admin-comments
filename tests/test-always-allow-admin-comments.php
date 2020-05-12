@@ -280,17 +280,26 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 	 */
 
 	public function test_can_show_ui_for_admin() {
+		$post_id = $this->factory->post->create( array( 'comment_status' => 'open' ) );
 		$this->create_user( 'administrator' );
 
-		$this->assertTrue( c2c_AlwaysAllowAdminComments::get_instance()->can_show_ui() );
+		$this->assertTrue( c2c_AlwaysAllowAdminComments::get_instance()->can_show_ui( $post_id ) );
 	}
 
 	public function test_can_show_ui_for_non_admin() {
-		$this->assertFalse( c2c_AlwaysAllowAdminComments::get_instance()->can_show_ui() );
+		$post_id = $this->factory->post->create( array( 'comment_status' => 'open' ) );
+		$this->assertFalse( c2c_AlwaysAllowAdminComments::get_instance()->can_show_ui( $post_id ) );
 
 		$this->create_user( 'editor' );
 
-		$this->assertFalse( c2c_AlwaysAllowAdminComments::get_instance()->can_show_ui() );
+		$this->assertFalse( c2c_AlwaysAllowAdminComments::get_instance()->can_show_ui( $post_id ) );
+	}
+
+	public function test_can_show_ui_for_unsupported_post_type() {
+		$post_id = $this->factory->post->create( array( 'comment_status' => 'open', 'post_type' => 'bogus' ) );
+		$this->create_user( 'administrator' );
+
+		$this->assertFalse( c2c_AlwaysAllowAdminComments::get_instance()->can_show_ui( $post_id ) );
 	}
 
 	/*

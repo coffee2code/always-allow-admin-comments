@@ -172,7 +172,7 @@ class c2c_AlwaysAllowAdminComments {
 	 */
 	public function do_meta_box( $post_type, $type, $post ) {
 		// Can the UI be shown?
-		if ( ! $this->can_show_ui() ) {
+		if ( ! $this->can_show_ui( $post ) ) {
 			return;
 		}
 
@@ -196,14 +196,19 @@ class c2c_AlwaysAllowAdminComments {
 	/**
 	 * Determines if the UI for the plugin can be shown.
 	 *
-	 * Currently only requires that the current user be an administrator.
+	 * Criteria for the UI to be shown:
+	 * - Current user is an administrator
+	 * - Current post's post type is supported
 	 *
 	 * @since 1.2
+	 * @since 1.3 Added `$post` argument.
 	 *
+	 * @param int|WP_Post|null $post Optional. Post ID, post object, or null to
+	 *                               denote current post. Default null.
 	 * @return bool
 	 */
-	public function can_show_ui() {
-		return current_user_can( 'administrator' );
+	public function can_show_ui( $post = null ) {
+		return current_user_can( 'administrator' ) && in_array( get_post_type( $post ), self::get_post_types() );
 	}
 
 	/**
@@ -237,7 +242,7 @@ class c2c_AlwaysAllowAdminComments {
 	 * @param int $post_id The post ID.
 	 */
 	public function save_setting( $post_id ) {
-		if ( ! $this->can_show_ui() ) {
+		if ( ! $this->can_show_ui( $post_id ) ) {
 			return;
 		}
 
@@ -253,7 +258,7 @@ class c2c_AlwaysAllowAdminComments {
 	 * @param WP_Post|null Post or null to denote current post. Default null.
 	 */
 	public function display_option( $post = null ) {
-		if ( ! $this->can_show_ui() ) {
+		if ( ! $this->can_show_ui( $post ) ) {
 			return;
 		}
 
