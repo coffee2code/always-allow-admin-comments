@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Note compatibility through WP 5.4+
+
 ## 1.2.2 _(2019-12-28)_
 * Unit tests:
     * New: Add test to verify plugin hooks `plugins_loaded` action to initialize itself
