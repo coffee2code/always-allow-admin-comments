@@ -101,6 +101,26 @@ class c2c_AlwaysAllowAdminComments {
 	}
 
 	/**
+	 * Returns the support post types.
+	 *
+	 * @psince 1.3
+	 *
+	 * @return array
+	 */
+	public static function get_post_types() {
+		/**
+		 * Filters whether admin commenting has been explicitly disabled for the
+		 * given post.
+		 *
+		 * @since 1.3
+		 *
+		 * @param array $post_types Supported post types. Default is all the post
+		 *                          types that support 'comments' as a feature.
+		 */
+		return array_values( (array) apply_filters( 'c2c_always_allow_admin_comments_post_types', get_post_types_by_support( 'comments' ) ) );
+	}
+
+	/**
 	 * Registers the post meta field.
 	 *
 	 * @since 1.1
@@ -119,16 +139,7 @@ class c2c_AlwaysAllowAdminComments {
 			'show_in_rest'      => true,
 		);
 
-		/**
-		 * Filters whether admin commenting has been explicitly disabled for the
-		 * given post.
-		 *
-		 * @since 1.3
-		 *
-		 * @param array $post_types Supported post types. Default is all the post
-		 *                          types that support 'comments' as a feature.
-		 */
-		$post_types = (array) apply_filters( 'c2c_always_allow_admin_comments_post_types', get_post_types_by_support( 'comments' ) );
+		$post_types = self::get_post_types();
 		if ( ! $post_types ) {
 			return;
 		}

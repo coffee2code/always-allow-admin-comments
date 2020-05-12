@@ -119,7 +119,34 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 		}
 	}
 
-	public function test_admin_can_comment_when_comments_closed() {
+	/*
+	 * get_post_types()
+	 */
+
+	public function test_get_post_types() {
+		$this->assertEquals( array( 'post', 'page', 'attachment' ), c2c_AlwaysAllowAdminComments::get_post_types() );
+	}
+
+	/*
+	 * filter: c2c_always_allow_admin_comments_post_types
+	 */
+
+	 public function test_filter_c2c_always_allow_admin_comments_post_types() {
+		add_filter( 'c2c_always_allow_admin_comments_post_types', function( $post_types ) {
+			if ( false !== $i = array_search( 'page', $post_types ) ) {
+				unset( $post_types[ $i ] );
+			}
+			return $post_types;
+		} );
+
+		$this->assertEquals( array( 'post', 'attachment' ), c2c_AlwaysAllowAdminComments::get_post_types() );
+	}
+
+	/*
+	 * Core functionality via comments_open()
+	 */
+
+	 public function test_admin_can_comment_when_comments_closed() {
 		$post_id = $this->factory->post->create( array( 'comment_status' => 'closed' ) );
 		$user_id = $this->create_user( 'administrator' );
 
