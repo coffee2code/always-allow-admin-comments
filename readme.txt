@@ -88,6 +88,28 @@ function restrict_admin_commenting( $status, $post_id ) {
 add_filter( 'c2c_always_allow_admin_comments_disable', 'restrict_admin_commenting', 10, 2 );
 `
 
+**c2c_always_allow_admin_comments_post_types (filter)**
+
+The 'c2c_always_allow_admin_comments_post_types' filter allows you to customize which post types are supported by the plugin. By default, all post types that have registered support for the 'comments' feature are supported.
+
+Arguments:
+
+* $post_types (array): Supported post types. Default is all the post types that support 'comments' as a feature.
+
+Return:
+
+* (array): Array of supported post types.
+
+Example:
+
+`
+// Disable support for Always Allow Admin Comments for pages.
+add_filter( 'c2c_always_allow_admin_comments_post_types', function( $post_types ) {
+    unset( $post_types['page'] );
+    return $post_types;
+} );
+`
+
 
 == Changelog ==
 

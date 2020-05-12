@@ -119,7 +119,16 @@ class c2c_AlwaysAllowAdminComments {
 			'show_in_rest'      => true,
 		);
 
-		$post_types = get_post_types_by_support( 'comments' );
+		/**
+		 * Filters whether admin commenting has been explicitly disabled for the
+		 * given post.
+		 *
+		 * @since 1.3
+		 *
+		 * @param array $post_types Supported post types. Default is all the post
+		 *                          types that support 'comments' as a feature.
+		 */
+		$post_types = (array) apply_filters( 'c2c_always_allow_admin_comments_post_types', get_post_types_by_support( 'comments' ) );
 		if ( ! $post_types ) {
 			return;
 		}
