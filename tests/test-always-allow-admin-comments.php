@@ -61,6 +61,26 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 
 	//
 	//
+	// DATA PROVIDERS
+	//
+	//
+
+
+	public static function get_default_hooks() {
+		// Function names prefixed with "::" are treated as class methods
+		// instead of object methods.
+		return array(
+			array( 'filter', 'comments_open',                        'comments_open_for_admin', 20 ),
+			array( 'action', 'post_comment_status_meta_box-options', 'display_option',          10 ),
+			array( 'action', 'save_post',                            'save_setting',            10 ),
+			array( 'action', 'do_meta_boxes',                        'do_meta_box',             10 ),
+			array( 'action', 'init',                                 '::register_meta',         10 ),
+		);
+	}
+
+
+	//
+	//
 	// TESTS
 	//
 	//
@@ -80,6 +100,23 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 
 	public function test_hooks_plugins_loaded() {
 		$this->assertEquals( 10, has_filter( 'plugins_loaded', array( 'c2c_AlwaysAllowAdminComments', 'get_instance' ) ) );
+	}
+
+	/**
+	 * @dataProvider get_default_hooks
+	 */
+	public function test_default_hooks( $hook_type, $hook, $function, $priority ) {
+		$callback = 0 === strpos( $function, '::' )
+			? array( 'c2c_AlwaysAllowAdminComments', substr( $function, 2 ) )
+			: array( c2c_AlwaysAllowAdminComments::get_instance(), $function );
+
+		$prio = $hook_type === 'action' ?
+			has_action( $hook, $callback ) :
+			has_filter( $hook, $callback );
+		$this->assertNotFalse( $prio );
+		if ( $priority ) {
+			$this->assertEquals( $priority, $prio );
+		}
 	}
 
 	public function test_admin_can_comment_when_comments_closed() {
