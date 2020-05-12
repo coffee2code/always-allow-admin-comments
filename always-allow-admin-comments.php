@@ -22,18 +22,6 @@
  */
 
 /*
- * TODO:
- * - Add template tag that allows checking if commenting is enabled due to this plugin.
- *   (basically the value comments_open() would return if this plugin weren't active)
- *   perhaps c2c_are_comments_open_only_for_admins()
- * - Rename meta key to reflect its meaning rather than simple being the name of the plugin.
- * - Add filter for support post types
- * - Add support for new block editor (aka Gutenberg) (once it becomes possible to alter
- *   the contents of the discussion panel)
- * - Check if post type supports comments before adding checkbox to Discussion box?
- */
-
-/*
 	Copyright (c) 2013-2020 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or

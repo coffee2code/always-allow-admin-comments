@@ -1,6 +1,7 @@
 # Changelog
 
 ## _(in-progress)_
+* New: Add TODO.md and move existing TODO list from top of main plugin file into it (and add more items to the list)
 * Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
 * Change: Note compatibility through WP 5.4+
 * Change: Update links to coffee2code.com to be HTTPS
