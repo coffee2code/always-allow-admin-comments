@@ -1,9 +1,10 @@
 # Changelog
 
 ## _(in-progress)_
-* New: Add filter `c2c_always_allow_admin_comments_post_types` to allow customizing supported post types
-* New: Add `get_post_types()` to get the list of supported post types
-* Change: Enhance `can_show_ui()` to check if post's post type is supported
+* Change: Add customization for post type support
+    * New: Add filter `c2c_always_allow_admin_comments_post_types` to allow customizing supported post types
+    * New: Add `get_post_types()` to get the list of supported post types
+    * Change: Enhance `can_show_ui()` to check if post's post type is supported
 * Change: Change label for setting
 * New: Add TODO.md and move existing TODO list from top of main plugin file into it (and add more items to the list)
 * Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
