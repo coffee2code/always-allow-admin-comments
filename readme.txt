@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 5.4
-Stable tag: 1.2.2
+Stable tag: 1.3
 
 Allow an admin user (when logged in) to always be able to comment on a post, even if comments are closed for the post.
 
@@ -115,6 +115,20 @@ add_filter( 'c2c_always_allow_admin_comments_post_types', function( $post_types 
 
 == Changelog ==
 
+= 1.3 (2020-05-12) =
+* Change: Add customization for post type support
+    * New: Add filter `c2c_always_allow_admin_comments_post_types` to allow customizing supported post types
+    * New: Add `get_post_types()` to get the list of supported post types
+    * Change: Enhance `can_show_ui()` to check if post's post type is supported
+* Change: Change label for setting
+* New: Add TODO.md and move existing TODO list from top of main plugin file into it (and add more items to the list)
+* Change: Use HTTPS for link to WP SVN repository in bin script for configuring unit tests
+* Change: Note compatibility through WP 5.4+
+* Change: Update links to coffee2code.com to be HTTPS
+* Unit tests:
+    * New: Add tests for registering of hooks
+    * Change: Remove unnecessary unregistering of hooks
+
 = 1.2.2 (2019-12-28) =
 * Unit tests:
     * New: Add test to verify plugin hooks `plugins_loaded` action to initialize itself
@@ -130,46 +144,13 @@ add_filter( 'c2c_always_allow_admin_comments_post_types', function( $post_types 
 * Fix: Correct typo in GitHub URL
 * Fix: Use full path to CHANGELOG.md in the Changelog section of readme.txt
 
-= 1.2 (2019-03-20) =
-Highlights:
-
-This release mainly adds support for the block editor (aka Gutenberg) via an interim metabox "Prevent Admin Comments". (The block editor does not currently support adding the plugin's checkbox in the "Discussion" panel as expected.) Otherwise, there were a number of behind-the-scenes code and documentation changes.
-
-Details:
-
-* New: Add `do_meta_box()` for interim metabox for block editor (aka Gutenberg) support
-* New: Add `can_show_ui()` to determine if the UI should generally be shown
-* New: Add CHANGELOG.md file and move all but most recent changelog entries into it
-* New: Add inline documentation for hook
-* New: Add .gitignore file
-* New: Add screenshot of new block editor metabox
-* Change: Modify how the meta field is registered:
-    * Use `register_post_meta()` instead of `register_meta()`, if available
-    * Explicitly register meta for each post type that supports having comments
-    * Set `show_in_rest` to true
-    * Set `type` to boolean
-    * Add callbacks to `auth_callback` and `sanitize_callback`
-    * Register meta on `init` instead of `plugins_loaded`
-* Change: Revamp `display_option()` to operate in multiple contexts
-    * Make `$post` argument optional, defaulting to global post
-    * Improve styling when metabox appears on the right
-    * Use `sprintf()` instead of string concatenation to build output strings
-    * Move styles into `style` tag instead of being inline styles
-* Change: Add README link to plugin's page in Plugin Directory
-* Change: Split paragraph in README.md's "Support" section into two
-* Change: Initialize plugin on 'plugins_loaded' action instead of on load
-* Change: Merge `plugins_loaded()` into constructor
-* Change: Tweak plugin description
-* Change: Rename readme.txt section from 'Filters' to 'Hooks'
-* Change: Modify formatting of hook name in readme to prevent being uppercased when shown in the Plugin Directory
-* Change: Note compatibility through WP 5.1+
-* Change: Update copyright date (2019)
-* Change: Update License URI to be HTTPS
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/always-allow-admin-comments/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.3 =
+Minor update: Added hook for customizing post type support, updated a few URLs to be HTTPS, added TODO.md, and noted compatibility through WP 5.4+.
 
 = 1.2.2 =
 Trivial update: noted compatibility through WP 5.3+, add a few more unit tests, and updated copyright date (2020)

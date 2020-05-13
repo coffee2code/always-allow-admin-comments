@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Always Allow Admin Comments
- * Version:     1.2.2
+ * Version:     1.3
  * Plugin URI:  https://coffee2code.com/wp-plugins/admin-can-always-comment/
  * Author:      Scott Reilly
  * Author URI:  https://coffee2code.com/
@@ -18,7 +18,7 @@
  *
  * @package Always_Allow_Admin_Comments
  * @author  Scott Reilly
- * @version 1.2.2
+ * @version 1.3
  */
 
 /*
@@ -79,7 +79,7 @@ class c2c_AlwaysAllowAdminComments {
 	 * @since 1.0
 	 */
 	public static function version() {
-		return '1.2.2';
+		return '1.3';
 	}
 
 	/**
