@@ -128,7 +128,7 @@ class c2c_AlwaysAllowAdminComments {
 	public static function register_meta() {
 		$config = array(
 			'type'              => 'boolean',
-			'description'       => __( 'Disallow admin comments for the post', 'always-allow-admin-comments' ),
+			'description'       => __( 'Prevent administrators from commenting?', 'always-allow-admin-comments' ),
 			'single'            => true,
 			'sanitize_callback' => function ( $value ) {
 				return (bool) $value;
