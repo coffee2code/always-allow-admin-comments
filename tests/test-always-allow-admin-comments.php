@@ -211,6 +211,10 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 		$this->assertFalse( $obj->is_admin_commenting_disabled( $post_id2, false ) );
 	}
 
+	/*
+	 * filter: c2c_always_allow_admin_comments_disable
+	 */
+
 	public function test_filter_can_disable_admin_commenting() {
 		$post_id1 = $this->factory->post->create( array( 'post_title' => 'Admin cannot comment', 'comment_status' => 'closed' ) );
 		$post_id2 = $this->factory->post->create( array( 'post_title' => 'Aaaa', 'comment_status' => 'closed' ) );
