@@ -51,7 +51,7 @@ Yes.
 
 == Hooks ==
 
-The plugin is further customizable via one hook. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
+The plugin is further customizable via two hooks. Such code should ideally be put into a mu-plugin or site-specific plugin (which is beyond the scope of this readme to explain).
 
 **c2c_always_allow_admin_comments_disable (filter)**
 
@@ -105,7 +105,9 @@ Example:
 `
 // Disable support for Always Allow Admin Comments for pages.
 add_filter( 'c2c_always_allow_admin_comments_post_types', function( $post_types ) {
-    unset( $post_types['page'] );
+    if ( false !== $i = array_search( 'page', $post_types ) ) {
+        unset( $post_types[ $i ] );
+    }
     return $post_types;
 } );
 `
