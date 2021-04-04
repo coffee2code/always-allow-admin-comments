@@ -1,5 +1,8 @@
 # Changelog
 
+## _(in-progress)_
+* Change: Update copyright date (2021)
+
 ## 1.3 _(2020-05-12)_
 * Change: Add customization for post type support
     * New: Add filter `c2c_always_allow_admin_comments_post_types` to allow customizing supported post types
