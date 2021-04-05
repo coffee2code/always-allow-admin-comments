@@ -91,7 +91,7 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 	}
 
 	public function test_version() {
-		$this->assertEquals( '1.3', c2c_AlwaysAllowAdminComments::get_instance()->version() );
+		$this->assertEquals( '1.3.1', c2c_AlwaysAllowAdminComments::get_instance()->version() );
 	}
 
 	public function test_instance_object_is_returned() {

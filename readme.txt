@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 5.7
-Stable tag: 1.3
+Stable tag: 1.3.1
 
 Allow an admin user (when logged in) to always be able to comment on a post, even if comments are closed for the post.
 
@@ -115,6 +115,10 @@ add_filter( 'c2c_always_allow_admin_comments_post_types', function( $post_types 
 
 == Changelog ==
 
+= 1.3.1 (2021-04-04) =
+* Change: Note compatibility through WP 5.7+
+* Change: Update copyright date (2021)
+
 = 1.3 (2020-05-12) =
 * Change: Add customization for post type support
     * New: Add filter `c2c_always_allow_admin_comments_post_types` to allow customizing supported post types
@@ -137,17 +141,13 @@ add_filter( 'c2c_always_allow_admin_comments_post_types', function( $post_types 
 * Change: Add an FAQ to clarify that the checkbox to disable admin comments is only available for the classic editor
 * Change: Update copyright date (2020)
 
-= 1.2.1 (2019-06-18) =
-* Change: Update unit test install script and bootstrap to use latest WP unit test repo
-* Change: Note compatibility through WP 5.2+
-* Change: Add link to CHANGELOG.md in README.md
-* Fix: Correct typo in GitHub URL
-* Fix: Use full path to CHANGELOG.md in the Changelog section of readme.txt
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/always-allow-admin-comments/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+Trivial update: noted compatibility through WP 5.7+ and updated copyright date (2021)
 
 = 1.3 =
 Minor update: Added hook for customizing post type support, updated a few URLs to be HTTPS, added TODO.md, and noted compatibility through WP 5.4+.
