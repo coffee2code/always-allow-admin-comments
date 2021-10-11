@@ -5,6 +5,8 @@
  * @package Always_Allow_Admin_Comments
  */
 
+define( 'ALWAYS_ALLOW_ADMIN_COMMENTS_PLUGIN_FILE', dirname( __FILE__, 3 ) . '/always-allow-admin-comments.php' );
+
 ini_set( 'display_errors', 'on' );
 error_reporting( E_ALL );
 
@@ -20,7 +22,7 @@ require_once $_tests_dir . '/tests/phpunit/includes/functions.php';
  * Manually load the plugin being tested.
  */
 function _manually_load_plugin() {
-	require dirname( __FILE__, 3 ) . '/always-allow-admin-comments.php';
+	require ALWAYS_ALLOW_ADMIN_COMMENTS_PLUGIN_FILE;
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 

@@ -9,6 +9,7 @@
         * Change: Move `tests/test-*.php` into `tests/phpunit/tests/`
     * Change: Remove 'test-' prefix from unit test file
     * Change: Rename `phpunit.xml` to `phpunit.xml.dist` per best practices
+    * Change: In bootstrap, store path to plugin file constant
 
 ## 1.3.1 _(2021-04-04)_
 * Change: Note compatibility through WP 5.7+
