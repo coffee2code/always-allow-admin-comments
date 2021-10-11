@@ -8,6 +8,7 @@
         * Change: Move `tests/bootstrap.php` into `tests/phpunit/`
         * Change: Move `tests/test-*.php` into `tests/phpunit/tests/`
     * Change: Remove 'test-' prefix from unit test file
+    * Change: Rename `phpunit.xml` to `phpunit.xml.dist` per best practices
 
 ## 1.3.1 _(2021-04-04)_
 * Change: Note compatibility through WP 5.7+
