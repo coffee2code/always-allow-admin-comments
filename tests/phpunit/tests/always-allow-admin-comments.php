@@ -8,6 +8,10 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 
 	public function setUp() {
 		parent::setUp();
+
+		register_post_type( 'book', array( 'public' => true, 'name' => 'Book', 'supports' => array( 'comments' ) ) );
+		register_post_type( 'secret', array( 'public' => false, 'name' => 'Secret' ) );
+
 		// This shouldn't be necessary.
 		do_action( 'init' );
 	}
@@ -15,6 +19,8 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 	public function tearDown() {
 		parent::tearDown();
 		$this->unset_current_user();
+		unregister_post_type( 'book' );
+		unregister_post_type( 'secret' );
 	}
 
 
@@ -124,7 +130,7 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 	 */
 
 	public function test_get_post_types() {
-		$this->assertEquals( array( 'post', 'page', 'attachment' ), c2c_AlwaysAllowAdminComments::get_post_types() );
+		$this->assertEquals( array( 'post', 'page', 'attachment', 'book' ), c2c_AlwaysAllowAdminComments::get_post_types() );
 	}
 
 	/*
@@ -139,7 +145,7 @@ class test_AlwaysAllowAdminComments extends WP_UnitTestCase {
 			return $post_types;
 		} );
 
-		$this->assertEquals( array( 'post', 'attachment' ), c2c_AlwaysAllowAdminComments::get_post_types() );
+		$this->assertEquals( array( 'post', 'attachment', 'book' ), c2c_AlwaysAllowAdminComments::get_post_types() );
 	}
 
 	/*

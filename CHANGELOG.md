@@ -5,6 +5,7 @@
 * Change: Note compatibility through WP 5.8+
 * Change: Tweak installation instruction
 * Unit tests:
+    * Change: Explicitly test a custom post type that supports comments and one that does not
     * Change: Restructure unit test directories
         * Change: Move `bin` into `tests/`
         * Change: Move `tests/bootstrap.php` into `tests/phpunit/`
