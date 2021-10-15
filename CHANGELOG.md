@@ -1,6 +1,6 @@
 # Changelog
 
-## _(in-progress)_
+## 1.3.2 _(2021-10-14)_
 * New: Add DEVELOPER-DOCS.md and move hooks documentation into it
 * Change: Note compatibility through WP 5.8+
 * Change: Tweak installation instruction

@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 4.6
 Tested up to: 5.8
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 
 Allow an admin user (when logged in) to always be able to comment on a post, even if comments are closed for the post.
 
@@ -61,6 +61,21 @@ As an overview, these are the hooks provided by the plugin:
 
 == Changelog ==
 
+= 1.3.2 (2021-10-14) =
+* New: Add DEVELOPER-DOCS.md and move hooks documentation into it
+* Change: Note compatibility through WP 5.8+
+* Change: Tweak installation instruction
+* Unit tests:
+    * Change: Explicitly test a custom post type that supports comments and one that does not
+    * Change: Restructure unit test directories
+        * Change: Move `bin` into `tests/`
+        * Change: Move `tests/bootstrap.php` into `tests/phpunit/`
+        * Change: Move `tests/test-*.php` into `tests/phpunit/tests/`
+    * Change: Remove 'test-' prefix from unit test file
+    * Change: Rename `phpunit.xml` to `phpunit.xml.dist` per best practices
+    * Change: In bootstrap, store path to plugin file constant
+    * Change: In bootstrap, add backcompat for PHPUnit pre-v6.0
+
 = 1.3.1 (2021-04-04) =
 * Change: Note compatibility through WP 5.7+
 * Change: Update copyright date (2021)
@@ -79,18 +94,13 @@ As an overview, these are the hooks provided by the plugin:
     * New: Add tests for registering of hooks
     * Change: Remove unnecessary unregistering of hooks
 
-= 1.2.2 (2019-12-28) =
-* Unit tests:
-    * New: Add test to verify plugin hooks `plugins_loaded` action to initialize itself
-    * New: Add unit tests for functions `can_show_ui()`, `comments_open_for_admin()`
-* Change: Note compatibility through WP 5.3+
-* Change: Add an FAQ to clarify that the checkbox to disable admin comments is only available for the classic editor
-* Change: Update copyright date (2020)
-
 _Full changelog is available in [CHANGELOG.md](https://github.com/coffee2code/always-allow-admin-comments/blob/master/CHANGELOG.md)._
 
 
 == Upgrade Notice ==
+
+= 1.3.2 =
+Trivial update: added DEVELOPER-DOCS.md, noted compatibility through WP 5.8+, and minor reorganization and tweaks to unit tests
 
 = 1.3.1 =
 Trivial update: noted compatibility through WP 5.7+ and updated copyright date (2021)
